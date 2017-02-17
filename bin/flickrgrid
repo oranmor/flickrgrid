@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
 require 'flickrgrid'
 
-Flickrgrid.start
+begin
+  Flickrgrid::App.start
+rescue StandardError => e
+  STDERR.puts e
+end

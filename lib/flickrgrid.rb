@@ -1,8 +1,9 @@
+require 'flickrgrid/app'
+require 'flickrgrid/cli'
+require 'flickrgrid/downloader'
+require 'flickrgrid/flickrraw_wrapper'
+require 'flickrgrid/keywords_queue'
 require 'flickrgrid/version'
-require 'flickrgrid/parser'
 
 module Flickrgrid
-  def self.start
-    params = Flickrgrid::Parser.parse!(ARGV)
-  end
 end

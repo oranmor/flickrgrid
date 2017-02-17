@@ -1,7 +1,7 @@
 require 'optparse'
 
 module Flickrgrid
-  class Parser
+  class Cli
     attr_reader :options
 
     class << self
@@ -13,7 +13,7 @@ module Flickrgrid
     def initialize(args)
       @args = args
       @args = ['-h'] if @args.nil? || @args.empty?
-      @mandatory = [:output, :keywords]
+      @mandatory = [:output]
       @options = {}
       parse_args
       check_mandatory
@@ -37,6 +37,10 @@ module Flickrgrid
 
         opt.on('-o', '--output FILENAME', 'Output filename to store collage') do |output|
           @options[:output] = output
+        end
+
+        opt.on('-d', '--dictionary FILENAME', 'Path to keywords dictionary') do |dict|
+          @options[:dict] = dict
         end
 
         opt.on('-v', '--version', 'Show version') do

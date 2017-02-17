@@ -10,6 +10,9 @@ Style/GuardClause:
 Style/RaiseArgs:
   EnforcedStyle: compact
 
+Style/RescueModifier:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 120
 

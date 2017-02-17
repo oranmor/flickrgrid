@@ -8,7 +8,8 @@ module Flickrgrid
 
     def initialize(params = {})
       queue = KeywordsQueue.create(keywords: params[:keywords], dict_file: params[:dict])
-      files = Downloader.get_images(queue)
+      images = Downloader.get_images(queue)
+      Collage.new(params[:output], images)
     end
   end
 end

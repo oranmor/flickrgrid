@@ -15,7 +15,7 @@ module Flickrgrid
     end
 
     def initialize(keywords_queue)
-      @flickr = FlickrrawWrapper.new(api_key: ENV['FLICKR_KEY'], shared_secret: ENV['FLICKR_SECRET'])
+      @flickr = FlickrrawWrapper.new
       @queue = keywords_queue
       @threads = []
       @files = []

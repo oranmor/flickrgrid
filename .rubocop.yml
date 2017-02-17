@@ -1,0 +1,21 @@
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+AllCops:
+  TargetRubyVersion: 2.4
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+    - tmp/**/*
+    - Gemfile
+    - Gemfile.lock
+    - flickrgrid.gemspec

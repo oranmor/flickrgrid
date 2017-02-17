@@ -1,5 +1,5 @@
-require "flickrgrid/version"
+require 'flickrgrid/version'
+require 'flickrgrid/parser'
 
 module Flickrgrid
-  # Your code goes here...
 end

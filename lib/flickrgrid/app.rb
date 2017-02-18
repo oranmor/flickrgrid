@@ -3,13 +3,14 @@ module Flickrgrid
 
   class App
     def self.start
-      new(Cli.parse!(ARGV))
+      params = Cli.parse!(ARGV)
+      new(params)
     end
 
-    def initialize(params = {})
-      queue = KeywordsQueue.create(keywords: params[:keywords], dict_file: params[:dict])
+    def initialize(keywords:, output_path:, dict_path: nil)
+      queue = KeywordsQueue.create(keywords: keywords, dict_path: dict_path)
       images = Downloader.get_images(queue)
-      Collage.new(params[:output], images)
+      CollageCreator.new(output_path, images)
     end
   end
 end

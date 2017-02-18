@@ -2,10 +2,9 @@ module Flickrgrid
   class KeywordsQueue
     DEFAULT_DICT = File.dirname(__FILE__) + '/../../config/default_dict.txt'
 
-    def self.create(keywords:, dict_file: nil)
+    def self.create(keywords:, dict_path: nil)
       words = keywords || []
-      dict = dict_file || DEFAULT_DICT
-      dict_words = File.readlines(dict).map(&:chomp)
+      dict_words = File.readlines(dict_path || DEFAULT_DICT).map(&:chomp)
       new(dict_words.shuffle + words.reverse)
     end
 

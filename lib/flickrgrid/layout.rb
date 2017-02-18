@@ -1,17 +1,16 @@
-require 'mini_magick'
-
 module Flickrgrid
-  class GridCalc
+  class Layout
     WIDTH  = 1920
     HEIGHT = 1080
 
     COLUMNS = 5
     ROWS = 3
 
-    WIDTH_UNIT = WIDTH / COLUMNS
-    HEIGHT_UNIT = HEIGHT / ROWS
+    UNIT_WIDTH = WIDTH / COLUMNS
+    UNIT_HEIGHT = HEIGHT / ROWS
 
     # width, height, width_offset, height_offset
+    # (size in units)
     LAYOUT = [
       [1, 1, 0, 0], # 0
       [1, 1, 1, 0], # 1
@@ -27,15 +26,23 @@ module Flickrgrid
 
     class << self
       def get_size(img_num)
-        x = LAYOUT[img_num][0] * WIDTH_UNIT
-        y = LAYOUT[img_num][1] * HEIGHT_UNIT
+        x = LAYOUT[img_num][0] * UNIT_WIDTH
+        y = LAYOUT[img_num][1] * UNIT_HEIGHT
         "#{x}x#{y}"
       end
 
       def get_offset(img_num)
-        x_off = LAYOUT[img_num][2] * WIDTH_UNIT
-        y_off = LAYOUT[img_num][3] * HEIGHT_UNIT
+        x_off = LAYOUT[img_num][2] * UNIT_WIDTH
+        y_off = LAYOUT[img_num][3] * UNIT_HEIGHT
         "+#{x_off}+#{y_off}"
+      end
+
+      def width
+        WIDTH
+      end
+
+      def height
+        HEIGHT
       end
     end
   end

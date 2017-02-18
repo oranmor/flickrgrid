@@ -10,7 +10,7 @@ module Flickrgrid
       end
     end
 
-    def initialize(args)
+    def initialize(args = nil)
       @args = args
       @args = ['-h'] if @args.nil? || @args.empty?
       @mandatory = [:output_path]

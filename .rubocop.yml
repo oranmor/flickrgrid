@@ -13,6 +13,9 @@ Style/RaiseArgs:
 Style/RescueModifier:
   Enabled: false
 
+Style/BlockComments:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 120
 
@@ -25,6 +28,7 @@ AllCops:
     - bin/**/*
     - vendor/**/*
     - tmp/**/*
+    - spec/**/*
     - Gemfile
     - Gemfile.lock
     - flickrgrid.gemspec

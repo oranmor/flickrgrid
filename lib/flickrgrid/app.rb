@@ -7,10 +7,10 @@ module Flickrgrid
       new(params)
     end
 
-    def initialize(keywords:, output_path:, dict_path: nil)
-      queue = KeywordsQueue.create(keywords: keywords, dict_path: dict_path)
+    def initialize(keywords:, output:, dict: nil)
+      queue = KeywordsQueue.create(keywords: keywords, dict_path: dict)
       images = Downloader.get_images(queue)
-      CollageCreator.new(output_path, images)
+      CollageCreator.new(output, images)
     end
   end
 end

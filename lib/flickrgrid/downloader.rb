@@ -15,7 +15,7 @@ module Flickrgrid
     end
 
     def initialize(keywords_queue)
-      @flickr = FlickrrawWrapper.new
+      @flickr = FlickRawWrapper.new
       @queue = keywords_queue
       @threads = []
       @files = []

@@ -13,7 +13,7 @@ module Flickrgrid
     def initialize(args = nil)
       @args = args
       @args = ['-h'] if @args.nil? || @args.empty?
-      @mandatory = [:output_path]
+      @mandatory = [:output]
       @options = {}
       parse_args
       check_mandatory
@@ -35,12 +35,12 @@ module Flickrgrid
         opt.separator  ''
         opt.separator  'Options'
 
-        opt.on('-o', '--output FILENAME', 'Output filename to store collage') do |output_path|
-          @options[:output_path] = output_path
+        opt.on('-o', '--output FILENAME', 'Output filename to store collage') do |output|
+          @options[:output] = output
         end
 
-        opt.on('-d', '--dictionary FILENAME', 'Path to keywords dictionary') do |dict_path|
-          @options[:dict_path] = dict_path
+        opt.on('-d', '--dict FILENAME', 'Path to keywords dictionary') do |dict|
+          @options[:dict] = dict
         end
 
         opt.on('-v', '--version', 'Show version') do
